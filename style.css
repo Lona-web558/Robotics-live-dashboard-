@@ -1,0 +1,87 @@
+:root {
+  --bg: #0b1014;
+  --panel: #131b22;
+  --line: #24323d;
+  --text: #e6edf3;
+  --muted: #8a9aa8;
+  --gold: #e8b931;
+  --cyan: #3dd6d0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  padding: 2rem 0 1.5rem;
+  background: linear-gradient(180deg, #101922 0%, var(--bg) 100%);
+}
+.site-header h1 {
+  font-weight: 700;
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  color: var(--gold);
+  margin: 0;
+}
+.tagline { color: var(--muted); margin: .4rem 0 0; }
+
+.status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .85rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  min-height: 1.3rem;
+}
+.status.error { color: #ff7b72; }
+
+.stat-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1rem 1.1rem;
+  height: 100%;
+}
+.stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--muted);
+}
+.stat-value { font-size: 1.8rem; font-weight: 700; color: var(--cyan); margin-top: .2rem; }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.1rem;
+  height: 100%;
+}
+.panel-title {
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: .9rem;
+}
+
+.ranked-list { list-style: none; padding: 0; margin: 0; counter-reset: rank; }
+.ranked-list li {
+  counter-increment: rank;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .75rem;
+  padding: .5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.ranked-list li:last-child { border-bottom: none; }
+.ranked-list li::before {
+  content: counter(rank);
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--gold);
+  min-width: 1.4rem;
+}
+.ranked-list a { color: var(--text); text-decoration: none; flex: 1; }
+.ranked-list a:hover { color: var(--gold); }
+.ranked-list .meta { font-family: 'JetBrains Mono', monospace; font-size: .75rem; color: var(--muted); white-space: nowrap; }
